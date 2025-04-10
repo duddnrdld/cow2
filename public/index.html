@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>오늘의 띠별 운세</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; padding: 50px; background: #fffbe7; }
+    .container { display: inline-block; position: relative; }
+    .speech { background: #fff; border: 2px solid #000; border-radius: 15px; padding: 20px; width: 280px;
+              position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
+              box-shadow: 2px 2px 10px rgba(0,0,0,0.1); font-size: 15px; }
+    .title { font-size: 28px; font-weight: bold; margin-bottom: 30px; color: #333; }
+    .image { width: 180px; height: auto; margin-top: 100px; }
+  </style>
+</head>
+<body>
+  <div class="title">소띠 오늘의 운세</div>
+  <div class="container">
+    <div class="speech" id="fortune">운세를 불러오는 중...</div>
+    <img class="image" src="/cow.png" alt="소 캐릭터">
+  </div>
+
+  <script>
+    async function loadFortune() {
+      try {
+        const res = await fetch('/api/fortune?sign=ox');
+        const data = await res.json();
+        document.getElementById('fortune').innerText = data.fortune || '운세를 불러올 수 없습니다.';
+      } catch {
+        document.getElementById('fortune').innerText = '운세를 불러올 수 없습니다.';
+      }
+    }
+    window.onload = loadFortune;
+  </script>
+</body>
+</html>
