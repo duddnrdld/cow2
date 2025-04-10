@@ -2,22 +2,40 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>오늘의 띠별 운세</title>
+  <title>소띠 오늘의 운세</title>
   <style>
-    body { font-family: sans-serif; text-align: center; padding: 50px; background: #fffbe7; }
-    .container { display: inline-block; position: relative; }
-    .speech { background: #fff; border: 2px solid #000; border-radius: 15px; padding: 20px; width: 280px;
-              position: absolute; top: -180px; left: 50%; transform: translateX(-50%);
-              box-shadow: 2px 2px 10px rgba(0,0,0,0.1); font-size: 15px; }
-    .title { font-size: 28px; font-weight: bold; margin-bottom: 30px; color: #333; }
-    .image { width: 180px; height: auto; margin-top: 100px; }
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      background: url('/cow.png') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .speech {
+      background: rgba(255, 255, 255, 0.9);
+      border: 3px solid #000;
+      border-radius: 20px;
+      padding: 25px;
+      width: 300px;
+      max-width: 80%;
+      font-size: 16px;
+      text-align: center;
+      box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+    }
+    .title {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
   </style>
 </head>
 <body>
-  <div class="title">소띠 오늘의 운세</div>
-  <div class="container">
-    <div class="speech" id="fortune">운세를 불러오는 중...</div>
-    <img class="image" src="/cow.png" alt="소 캐릭터">
+  <div class="speech">
+    <div class="title">소띠 오늘의 운세</div>
+    <div id="fortune">운세를 불러오는 중...</div>
   </div>
 
   <script>
